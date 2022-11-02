@@ -58,7 +58,8 @@ html {
 }
 
 .main-header,
-#notification {
+#notification,
+#footer-msg {
     height: var(--header-height);
 }
 
@@ -94,7 +95,20 @@ html {
     height: 15%;
     background-color: lightpink;
     border: 1px solid black;
+}
 
+/* SECTION RIGHT ----------------------*/
+#chat {
+    height: calc(100% - (var(--header-height) * 2));
+    overflow-y: scroll;
+    /* DEBUG */    
+    background-color: lightpink;
+}
+
+#footer-msg {
+    /* DEBUG */
+    background-color: aliceblue;
+    border: 1px solid black;
 }
 
 

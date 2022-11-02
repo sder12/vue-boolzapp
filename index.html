@@ -49,19 +49,57 @@
                         </div>
                     </div>
                     <!-- Notification -->
-                    <div id="notification">
-                        <i class="fa-solid fa-bell-slash"></i>
-                        <span>Ricevi notifiche di nuovi messaggi</span>
-                        <span>Attiva notifiche desktop</span>
+                    <div id="notification" class="d-flex align-item">
+                        <div class="ms-1 me_5">
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </div>
+                        <div class="d-flex-column">
+                            <span>Ricevi notifiche di nuovi messaggi</span>
+                            <a href="">Attiva notifiche desktop</a>
+                        </div>
                     </div>
                     <!-- Search Bar -->
-                    <div id="search-bar">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <span>Cerca o inizia una nuova chat</span>
+                    <div id="search-bar" class="d-flex flex-centered">
+                        <div class="d-flex flex-centered">
+                            <!-- INPUT search -->
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <div class="flex-grow">
+                                <label for="search-txt" class="d-none">Cerca o inizia una nuova chat</label>
+                                <input type="text" id="search-txt" placeholder="Cerca o inizia una nuova chat">
+                            </div>
+                        </div>
                     </div>
+
                     <!-- CONTACT LEFT -->
                     <div id="contact">
-                        <div class="contact-friend"></div>
+                        <div class="contact-friend d-flex flex-space-between-start">
+                            <div class="d-flex"> 
+                                <div class="friend-img">
+                                    <img src="img/avatar_1.jpg" alt="">
+                                </div>
+                                <div class="friend-txt d-flex-column">
+                                    <h4>Michele</h4>
+                                    <span>Ultimo messaggio inviato</span>
+                                </div>
+                            </div>
+                            <div class="friend-hour d-flex me_5">
+                                <span>12:00</span>
+                            </div>
+                        </div>
+                        <div class="contact-friend d-flex flex-space-between-start">
+                            <div class="d-flex"> 
+                                <div class="friend-img">
+                                    <img src="img/avatar_3.jpg" alt="">
+                                </div>
+                                <div class="friend-txt d-flex-column">
+                                    <h4>Michele</h4>
+                                    <span>Ultimo messaggio inviato</span>
+                                </div>
+                            </div>
+                            <div class="friend-hour d-flex me_5">
+                                <span>12:00</span>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -89,12 +127,15 @@
                     <div id="chat" class="d-flex-column">
                         <div class="chat-msg sent-msg">
                             <span>Hai portato a spasso il cane?</span>
+                            <span class="msg-hour">16:15</span>
                         </div>
                         <div class="chat-msg sent-msg">
                             <span>Ricordati di stendere i panni!</span>
+                            <span class="msg-hour">16:15</span>
                         </div>
                         <div class="chat-msg received-msg">
                             <span>Tutto fatto!</span>
+                            <span class="msg-hour">16:15</span>
                         </div>
                     </div>
 
@@ -111,7 +152,7 @@
                         </div>
                         <!-- Microphone -->
                         <div>
-                           <a href=""> <i class="fa-solid fa-microphone"></i></a>
+                            <a href=""> <i class="fa-solid fa-microphone"></i></a>
                         </div>
                     </div>
 

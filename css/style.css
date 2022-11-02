@@ -82,38 +82,31 @@ html {
 }
 
 #search-bar {
+    background-color: white;
     height: var(--search-height);
-    /* DEBUG */
-    background-color: aliceblue;
-    border: 1px solid black;
 }
 
 #contact {
     height: calc(100% - (var(--search-height) + var(--header-height) * 2));
     overflow-y: scroll;
-    /* DEBUG */
-    background-color: rgb(255, 255, 123);
+    background-color: white;
 }
 
-.contact-friend {
-    /* DEBUG */
-    height: 15%;
-    background-color: lightpink;
-    border: 1px solid black;
+.contact-friend {    
+    /* DEBUG */    
+    height: 15%; 
+    background-color: var(--hover-person);
 }
 
 /* SECTION RIGHT ----------------------*/
 #chat {
     height: calc(100% - (var(--header-height) * 2));
     overflow-y: scroll;
-    /* DEBUG */
-    background-color: lightpink;
+    background-image: url('../img/mine.jpg');
 }
 
 #footer-msg {
-    /* DEBUG */
-    background-color: aliceblue;
-    border: 1px solid black;
+    background-color: var(--footer)
 }
 
 /* IMG HEADER */
@@ -124,15 +117,17 @@ html {
 }
 
 /* ICON */
-.main-header i{
+.main-header i {
     color: var(--main-icon);
     font-size: 1.2rem;
     margin: 0 8px;
 }
+
 /* FONTS */
-span{
+span {
     font-size: .8rem;
 }
+
 /* FLEX CLASS */
 .d-flex {
     display: flex;
@@ -148,13 +143,12 @@ span{
     align-items: center;
 }
 
-.align-self{
+.align-self {
     align-self: center;
 }
 
 
 /* MARGIN-PADDING */
-.ms-1{
+.ms-1 {
     margin-left: 1em;
 }
-

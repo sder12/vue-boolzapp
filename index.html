@@ -61,7 +61,7 @@
                     </div>
                     <!-- CONTACT LEFT -->
                     <div id="contact">
-                        <div class="contact-friend"></div>                        
+                        <div class="contact-friend"></div>
                     </div>
                 </section>
 
@@ -76,7 +76,7 @@
                             </div>
                             <div class="ms-1">
                                 <h4>Michele</h4>
-                                <span>Ultimo accesso oggi allw 12:00</span>
+                                <span>Ultimo accesso oggi alle 12:00</span>
                             </div>
                         </div>
                         <div id="chat-header-right">
@@ -86,16 +86,35 @@
                         </div>
                     </div>
                     <!-- CHAT -->
-                    <div id="chat">
-              
-                   
+                    <div id="chat" class="d-flex-column">
+                        <div class="chat-msg sent-msg">
+                            <span>Hai portato a spasso il cane?</span>
+                        </div>
+                        <div class="chat-msg sent-msg">
+                            <span>Ricordati di stendere i panni!</span>
+                        </div>
+                        <div class="chat-msg received-msg">
+                            <span>Tutto fatto!</span>
+                        </div>
                     </div>
+
                     <!-- Footer SEND MSG -->
-                    <div id="footer-msg">
-                        <i class="fa-regular fa-face-smile"></i>
-                        <span>Scrivi un messaggio</span>
-                        <i class="fa-solid fa-microphone"></i>
+                    <div id="footer-msg" class="d-flex flex-space-around ">
+                        <!-- Smile -->
+                        <div>
+                            <a href=""> <i class="fa-regular fa-face-smile"></i></a>
+                        </div>
+                        <!-- INPUT scrivi messaggio -->
+                        <div id="footer-input" class="flex-grow">
+                            <label for="send-msg" class="d-none">Scrivi un messaggio da inviare</label>
+                            <input type="text" id="send-msg" placeholder="Scrivi un messaggio">
+                        </div>
+                        <!-- Microphone -->
+                        <div>
+                           <a href=""> <i class="fa-solid fa-microphone"></i></a>
+                        </div>
                     </div>
+
                 </section>
             </main>
         </div>

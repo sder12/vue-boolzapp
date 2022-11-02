@@ -92,9 +92,9 @@ html {
     background-color: white;
 }
 
-.contact-friend {    
-    /* DEBUG */    
-    height: 15%; 
+.contact-friend {
+    /* DEBUG */
+    height: 15%;
     background-color: var(--hover-person);
 }
 
@@ -103,10 +103,46 @@ html {
     height: calc(100% - (var(--header-height) * 2));
     overflow-y: scroll;
     background-image: url('../img/mine.jpg');
+    padding: 2rem 4em;
 }
 
+.chat-msg {
+    margin-bottom: 1em;    
+    padding: .5em .7em ;
+    border-radius: 5px;
+    /* width messages: */
+    min-width: 40%;
+    max-width: 50%;
+    /* click */
+    cursor: pointer;
+}
+
+.sent-msg {
+    background-color: var(--send-msg);
+    align-self: flex-end;
+}
+.received-msg{
+    background-color: white;
+    align-self: flex-start;
+}
+
+
+
+/* footer */
 #footer-msg {
-    background-color: var(--footer)
+    background-color: var(--footer);
+    text-align: center;
+}
+
+#footer-input input {
+    width: 100%;
+    padding: .8rem;
+    border-radius: 5px;
+    border: 0;
+}
+
+#footer-input input:focus {
+    outline: none;
 }
 
 /* IMG HEADER */
@@ -123,14 +159,29 @@ html {
     margin: 0 8px;
 }
 
+#footer-msg div i {
+    color: var(--footer-icon);
+    font-size: 1.4rem;
+    margin: 0 30px;
+}
+
 /* FONTS */
 span {
     font-size: .8rem;
 }
 
 /* FLEX CLASS */
+.d-none {
+    display: none;
+}
+
 .d-flex {
     display: flex;
+}
+
+.d-flex-column {
+    display: flex;
+    flex-direction: column;
 }
 
 .flex-centered {
@@ -143,10 +194,18 @@ span {
     align-items: center;
 }
 
+.flex-space-around {
+    justify-content: space-around;
+    align-items: center;
+}
+
 .align-self {
     align-self: center;
 }
 
+.flex-grow {
+    flex-grow: 4;
+}
 
 /* MARGIN-PADDING */
 .ms-1 {

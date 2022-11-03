@@ -1,14 +1,19 @@
 
 const { createApp } = Vue;
 const dt = luxon.DateTime;
+const chatDiv = document.getElementById("chat");
 
 createApp({
     data() {
         return {
             activeContact: 0,
+            activeMsg: null,
+            //insert new msg
             messageInput: "",
             nowTime: "",
+            //search in the list of contacts
             searchTxt: "",
+            //GIVEN Data            
             contacts: [
                 {
                     name: 'Michele',
@@ -180,6 +185,7 @@ createApp({
             this.activeContact = index
         },
 
+        //Writing a new msg with time and have a 'robot' answer
         addNewMessage() {
             //TIME 
             this.nowTime = dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
@@ -211,27 +217,45 @@ createApp({
             }, 800);
         },
 
-        filterSearch(){
+        //Search-filter in the contact
+        filterSearch() {
             this.contacts.forEach(element => {
-                
-                const nameContact = element.name;          
-                if(this.searchTxt === nameContact || 
-                    this.searchTxt === nameContact.toLowerCase() ||
-                    nameContact.toLowerCase().includes(this.searchTxt)                
-                    ){
+                const nameContact = element.name;
+                if (nameContact.toLowerCase().includes(this.searchTxt)) {
                     element.visible = true;
-                } else{
+                } else {
                     element.visible = false;
                 }
             });
-            // if(!this.searchTxt === this.contacts.name){
-            //     this.contact.visible = false;
-            // }
+        },
+
+        //Click on a msg --> Pop up Info/Cancel Msg
+        visualizeCancel(i) {
+            if (this.activeMsg === null) {
+                this.activeMsg = parseInt(i);
+            } else {
+                this.activeMsg = null;
+            }
+        },
+
+        //Click on the Pop up --> elimination of the msg 
+        deleteMsg(index) {
+            const arrayMessages = this.contacts[this.activeContact].messages;
+
+            if (arrayMessages.length > 1) {
+                arrayMessages.splice(index, 1);
+            } else {
+                ////////////ERROR///////////////////////////
+                //////when I want to eliminate the last msg////////
+                chatDiv.innerHTML = "";
+            }
+        }, 
+
+        //DEBUG 
+        //ELIMINATE POP UP BY CLICKING HEADER - right section
+        removePopUp() {
+            this.activeMsg = null;
         }
-
-
     },
-    created() {
-        console.log("debug")
-    }
+
 }).mount("#app")

@@ -105,17 +105,19 @@ html {
     background-color: var(--header);
 }
 
-#search-bar > div {
+#search-bar>div {
     background-color: white;
     width: 95%;
     border: 1px solid rgba(128, 128, 128, 0.445);
     border-radius: 4px;
     padding: .3em 0;
 }
+
 #search-bar input {
     border: 0;
     width: 100%;
 }
+
 #search-bar input:focus {
     outline: none;
 }
@@ -192,6 +194,30 @@ html {
     background-color: white;
     align-self: flex-start;
 }
+
+.chat-box {
+    position: relative;
+}
+
+
+.cancel-msg {
+    background-color: white;
+    padding: 1em .5em;
+    box-shadow: 4px 2px 28px -3px rgba(0, 0, 0, 0.38);
+    border-radius: 3px;
+    z-index: 99;
+    /* position cancel msg */
+    position: absolute;
+    left: 55%;
+    bottom: -40px;    
+}
+
+.cancel-msg>* {
+    color: var(--footer-icon);
+    font-size: .8rem;
+    margin: .2em 0;
+}
+
 
 
 

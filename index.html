@@ -75,7 +75,8 @@
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </label>
                             <!-- INPUT search -->
-                            <input type="text" id="search-txt" placeholder="Cerca o inizia una nuova chat" v-model="searchTxt" @keyup="filterSearch()">
+                            <input type="text" id="search-txt" placeholder="Cerca o inizia una nuova chat"
+                                v-model.trim="searchTxt" @keyup="filterSearch()">
                         </div>
                     </section>
 
@@ -87,11 +88,11 @@
                                 <div class="friend-img">
                                     <img :src="'img/avatar' + friend.avatar + '.jpg'" :alt="friend.name">
                                 </div>
-                                <div class="friend-txt d-flex-column"  >
+                                <div class="friend-txt d-flex-column">
                                     <h4>{{friend.name}}</h4>
                                     <span>
                                         {{friend.messages[0].message}}
-                                    </span>                                  
+                                    </span>
                                 </div>
                             </div>
                             <div class="friend-hour d-flex me_5">
@@ -105,7 +106,7 @@
                 <!-- Section RIGHT -->
                 <div id="main-right">
                     <!-- Header RIGHT -->
-                    <header class="main-header d-flex flex-space-between">
+                    <header class="main-header d-flex flex-space-between" @click="removePopUp()">
                         <div id="chat-header-left" class="d-flex">
                             <div>
                                 <img :src="`img/avatar${contacts[activeContact].avatar}.jpg`"
@@ -127,29 +128,26 @@
                     <!-- CHAT -->
                     <section id="chat">
 
-                        <div class="chat-box d-flex-column" v-for="msgChat in contacts[activeContact].messages">
+                        <div class="chat-box d-flex-column">
 
-                            <div class="chat-msg sent-msg"
-                                :class="msgChat.status === 'sent'? 'sent-msg':'received-msg'">
+                            <div class="chat-msg" v-for="(msgChat, i) in contacts[activeContact].messages"
+                                :class="msgChat.status === 'sent'? 'sent-msg':'received-msg'"
+                                @click="visualizeCancel(i)">
+
                                 <span>{{msgChat.message}}</span>
                                 <span class="msg-hour">{{msgChat.date.substring(11, 16)}}</span>
+
+
+                                <!-- CANCEL msg -->
+                                <div class="cancel-msg " @click="deleteMsg(i)" v-if="i == activeMsg">
+                                    <h6>Message Info</h6>
+                                    <span> Delete Message</span>
+                                </div>
+
                             </div>
 
                         </div>
-                        <!-- <div class="chat-box d-flex-column">
-                            <div class="chat-msg sent-msg">
-                                <span>Hai portato a spasso il cane?</span>
-                                <span class="msg-hour">16:15</span>
-                            </div>
-                            <div class="chat-msg sent-msg">
-                                <span>Ricordati di stendere i panni!</span>
-                                <span class="msg-hour">16:15</span>
-                            </div>
-                            <div class="chat-msg received-msg">
-                                <span>Tutto fatto!</span>
-                                <span class="msg-hour">16:15</span>
-                            </div>
-                        </div> -->
+
                     </section>
 
 

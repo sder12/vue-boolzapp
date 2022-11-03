@@ -77,8 +77,8 @@
 
                     <!-- CONTACT LEFT -->
                     <section id="contact">
-                        <div class="contact-friend d-flex flex-space-between-start" v-for="(friend, index) in contacts">
-                            <div class="d-flex">
+                        <div class="contact-friend d-flex flex-space-between-start" v-for="(friend, index) in contacts" @click="changeActive(index)">
+                            <div class="d-flex" >
                                 <div class="friend-img">
                                     <img :src="'img/avatar' + friend.avatar + '.jpg'" :alt="friend.name">
                                 </div>
@@ -124,7 +124,7 @@
                       
                         <div class="chat-box d-flex-column" 
                         v-for="msgChat in contacts[activeContact].messages">
-                        
+
                             <div class="chat-msg sent-msg" 
                             :class="msgChat.status === 'sent'? 'sent-msg':'received-msg'">
                                 <span>{{msgChat.message}}</span>

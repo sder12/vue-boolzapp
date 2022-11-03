@@ -131,6 +131,7 @@ html {
 .contact-friend {
     padding: .8em 0;
     border-top: 2px solid var(--header);
+    cursor: pointer;
 }
 
 

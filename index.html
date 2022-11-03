@@ -75,23 +75,23 @@
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </label>
                             <!-- INPUT search -->
-                            <input type="text" id="search-txt" placeholder="Cerca o inizia una nuova chat">
+                            <input type="text" id="search-txt" placeholder="Cerca o inizia una nuova chat" v-model="searchTxt" @keyup="filterSearch()">
                         </div>
                     </section>
 
                     <!-- CONTACT LEFT -->
                     <section id="contact">
                         <div class="contact-friend d-flex flex-space-between-start" v-for="(friend, index) in contacts"
-                            @click="changeActive(index)">
+                            @click="changeActive(index)" :class="friend.visible === true? '' : 'sr-only'">
                             <div class="d-flex">
                                 <div class="friend-img">
                                     <img :src="'img/avatar' + friend.avatar + '.jpg'" :alt="friend.name">
                                 </div>
-                                <div class="friend-txt d-flex-column">
+                                <div class="friend-txt d-flex-column"  >
                                     <h4>{{friend.name}}</h4>
                                     <span>
                                         {{friend.messages[0].message}}
-                                    </span>
+                                    </span>                                  
                                 </div>
                             </div>
                             <div class="friend-hour d-flex me_5">

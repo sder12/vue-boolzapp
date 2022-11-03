@@ -8,6 +8,7 @@ createApp({
             activeContact: 0,
             messageInput: "",
             nowTime: "",
+            searchTxt: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -209,6 +210,24 @@ createApp({
                 arrayMessages.push(answerMsgEmpty);
             }, 800);
         },
+
+        filterSearch(){
+            this.contacts.forEach(element => {
+                
+                const nameContact = element.name;          
+                if(this.searchTxt === nameContact || 
+                    this.searchTxt === nameContact.toLowerCase() ||
+                    nameContact.toLowerCase().includes(this.searchTxt)                
+                    ){
+                    element.visible = true;
+                } else{
+                    element.visible = false;
+                }
+            });
+            // if(!this.searchTxt === this.contacts.name){
+            //     this.contact.visible = false;
+            // }
+        }
 
 
     },

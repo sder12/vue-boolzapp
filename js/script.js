@@ -6,11 +6,6 @@ createApp({
         return {
             activeContact: 0,
             messageInput: "",
-            answerMsg: {
-                date: '10/01/2020 15:51:00',
-                message: 'ok',
-                status: 'received',
-            },
             contacts: [
                 {
                     name: 'Michele',
@@ -183,6 +178,7 @@ createApp({
         },
 
         addNewMessage() {
+            //INPUT MSG
             //createObject
             const newMessage = {
                 date: '10/01/2020 15:51:00',
@@ -196,16 +192,18 @@ createApp({
             arrayMessages.push(newMessage);
             this.messageInput = "";
 
-
-            // //add setTimeOut response
-            setTimeout(() => {
-                console.log("ciao")}, 500);
-            // setTimeout(() => {
-            //     arrayMessages.push(this.answerMessage);
-            // }, 1000);
-
+            //OUTPUT-ANSWER
+            //CreateEmptyObj
+            const answerMsgEmpty = {
+                date: '10/01/2020 15:51:00',
+                message: 'ok',
+                status: 'received',
+            };
+            // //add setTimeOut response           
+            setTimeout(function () {
+                arrayMessages.push(answerMsgEmpty);
+            }, 700);
         },
-
 
     },
     created() {

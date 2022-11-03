@@ -14,9 +14,10 @@ html {
     font-family: 'Lato', sans-serif;
 }
 
-/* COMMON */
+/* VARIABLES */
 :root {
     --bg-body: rgba(218, 219, 212, 1);
+    --bg-body-last: #d2dbdc;
     --bg-body-green: rgba(0, 150, 136, 1);
     --header: rgba(234, 234, 234, 1);
     --main-icon: rgba(177, 177, 177, 1);
@@ -29,17 +30,22 @@ html {
     /* width */
     --section-left: 35%;
     /* height */
-    --header-height: 10%;
-    --search-height: 6%;
+    --header-height: 60px;
+    --search-height: 40px;
 }
 
 
-
+/* COMMON */
 /* CONTAINER and SECTIONS LAYOUT*/
 #container {
     width: 100%;
     height: 100vh;
-    background: linear-gradient(0deg, var(--bg-body) 50%, var(--bg-body-green) 50%);
+    background-image: linear-gradient(to bottom,
+            var(--bg-body-green) 0vh,
+            var(--bg-body-green) 15vh,
+            var(--bg-body) 15vh,
+            var(--bg-body) 60vh,
+            var(--bg-body-last));
 }
 
 #container-main {
@@ -93,31 +99,30 @@ html {
     padding-top: .2em;
 }
 
+
 #search-bar {
     height: var(--search-height);
     background-color: var(--header);
 }
 
-#search-bar>div {
+#search-bar > div {
     background-color: white;
     width: 95%;
-    border: 1px solid var(--hover-person);
-    border-radius: 3px;
+    border: 1px solid rgba(128, 128, 128, 0.445);
+    border-radius: 4px;
     padding: .3em 0;
 }
-
 #search-bar input {
     border: 0;
     width: 100%;
 }
-
 #search-bar input:focus {
     outline: none;
 }
 
 
 
-#contact {    
+#contact {
     height: calc(90vh - (var(--search-height) + (var(--header-height) * 2)));
     overflow-y: scroll;
     background-color: white;
@@ -125,8 +130,9 @@ html {
 
 .contact-friend {
     padding: .8em 0;
-    border-bottom: 2px solid var(--header);
+    border-top: 2px solid var(--header);
 }
+
 
 .contact-friend:hover {
     background-color: var(--hover-person);
@@ -140,7 +146,8 @@ html {
     height: 50px;
     border-radius: 50%;
 }
-.friend-hour span{
+
+.friend-hour span {
     font-size: .8rem;
     text-align: right;
 }
@@ -211,15 +218,17 @@ html {
     font-size: 1.2rem;
     margin: 0 8px;
 }
-#notification div:nth-child(1){
+
+#notification div:nth-child(1) {
     background-color: white;
     color: var(--notification);
     border-radius: 50%;
     width: 40px;
-    height: 40px;   
+    height: 40px;
     cursor: pointer;
 }
-#notification i {    
+
+#notification i {
     font-size: 1.2rem;
 }
 
@@ -241,10 +250,12 @@ html {
 span {
     font-size: .8rem;
 }
-h4{
+
+h4 {
     font-weight: 700;
     padding-bottom: 0;
 }
+
 .chat-msg .msg-hour,
 .friend-txt span,
 .friend-hour {
@@ -255,14 +266,14 @@ h4{
     padding-top: .2em;
 }
 
-#chat-header-left span {    
+#chat-header-left span {
     color: var(--footer-icon);
 }
 
 
 
 /* FLEX CLASS ----------------*/
-.d-none {
+.sr-only {
     display: none;
 }
 
@@ -309,7 +320,7 @@ h4{
 }
 
 .flex-grow {
-    flex-grow: 4;
+    flex-grow: 1;
 }
 
 
@@ -321,4 +332,3 @@ h4{
 .me_5 {
     margin-right: .5em;
 }
-

@@ -35,21 +35,24 @@
             <main id="container-main" class="d-flex">
 
                 <!-- Section LEFT -->
-                <section id="main-left">
-                    <!-- Header                  -->
-                    <div class="main-header d-flex flex-space-between">
-                        <div id="nav-left" class="d-flex">
-                            <img src="img/avatar_io.jpg" alt="">
+                <div id="main-left">
+
+                    <!-- Header -->
+                    <section class="main-header d-flex flex-space-between">
+                        <header id="nav-left" class="d-flex">
+                            <img src="img/avatar_io.jpg" alt="user icon">
                             <h4 class="ms-1 align-self">Sofia</h4>
-                        </div>
+                        </header>
                         <div id="nav-right">
                             <a href=""><i class="fa-solid fa-circle-notch"></i></a>
                             <a href=""><i class="fa-solid fa-message"></i></a>
                             <a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
                         </div>
-                    </div>
+                    </section>
+
+
                     <!-- Notification -->
-                    <div id="notification" class="d-flex align-item">
+                    <section id="notification" class="d-flex align-item">
                         <div class="ms-1 me_5 d-flex flex-centered">
                             <i class="fa-solid fa-bell-slash"></i>
                         </div>
@@ -57,32 +60,32 @@
                             <span>Ricevi notifiche di nuovi messaggi</span>
                             <a href="">Attiva notifiche desktop</a>
                         </div>
-                    </div>
+                    </section>
+
                     <!-- Search Bar -->
-                    <div id="search-bar" class="d-flex flex-centered">
+                    <section id="search-bar" class="d-flex flex-centered">
                         <div class="d-flex flex-centered">
+                            <!-- LABEL search -->
+                            <label for="search-txt">
+                                <span class="sr-only">Cerca o inizia una nuova chat </span>
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </label>
                             <!-- INPUT search -->
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <div class="flex-grow">
-                                <label for="search-txt" class="d-none">Cerca o inizia una nuova chat</label>
-                                <input type="text" id="search-txt" placeholder="Cerca o inizia una nuova chat">
-                            </div>
+                            <input type="text" id="search-txt" placeholder="Cerca o inizia una nuova chat">
                         </div>
-                    </div>
+                    </section>
 
                     <!-- CONTACT LEFT -->
-                    <div id="contact">
-
-                        <div class="contact-friend d-flex flex-space-between-start" 
-                                v-for="(friend, index) in contacts">
+                    <section id="contact">
+                        <div class="contact-friend d-flex flex-space-between-start" v-for="(friend, index) in contacts">
                             <div class="d-flex">
                                 <div class="friend-img">
-                                    <img :src="'img/avatar' + friend.avatar + '.jpg'" alt="">
+                                    <img :src="'img/avatar' + friend.avatar + '.jpg'" :alt="friend.name">
                                 </div>
                                 <div class="friend-txt d-flex-column">
                                     <h4>{{friend.name}}</h4>
-                                    <span>  
-                                        {{friend.messages[0].message}}                      
+                                    <span>
+                                        {{friend.messages[0].message}}
                                     </span>
                                 </div>
                             </div>
@@ -90,20 +93,21 @@
                                 <span> {{friend.messages[0].date.substring(11, 16)}}</span>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </div>
 
 
                 <!-- Section RIGHT -->
-                <section id="main-right">
+                <div id="main-right">
                     <!-- Header RIGHT -->
-                    <div class="main-header d-flex flex-space-between">
+                    <header class="main-header d-flex flex-space-between">
                         <div id="chat-header-left" class="d-flex">
                             <div>
-                                <img src="img/avatar_1.jpg" alt="">
+                                <img :src="`img/avatar${contacts[activeContact].avatar}.jpg`" 
+                                :alt="contacts[activeContact].name">
                             </div>
                             <div class="ms-1">
-                                <h4>Michele</h4>
+                                <h4>{{contacts[activeContact].name}}</h4>
                                 <span>Ultimo accesso oggi alle 12:00</span>
                             </div>
                         </div>
@@ -112,14 +116,12 @@
                             <a href=""><i class="fa-solid fa-paperclip"></i></a>
                             <a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
                         </div>
-                    </div>
+                    </header>
 
-                    
+
                     <!-- CHAT -->
-                    <div id="chat" class="d-flex-column">
-
-                        
-
+                    <section id="chat" class="d-flex-column">
+                        <!-- :class="...stauts === 'sent'? 'sent-msg':'received-msg'" -->
                         <div class="chat-msg sent-msg">
                             <span>Hai portato a spasso il cane?</span>
                             <span class="msg-hour">16:15</span>
@@ -132,29 +134,28 @@
                             <span>Tutto fatto!</span>
                             <span class="msg-hour">16:15</span>
                         </div>
+                    </section>
 
 
-
-                    </div>
 
                     <!-- Footer SEND MSG -->
-                    <div id="footer-msg" class="d-flex flex-space-around ">
+                    <footer id="footer-msg" class="d-flex flex-space-around ">
                         <!-- Smile -->
                         <div>
                             <a href=""> <i class="fa-regular fa-face-smile"></i></a>
                         </div>
                         <!-- INPUT scrivi messaggio -->
                         <div id="footer-input" class="flex-grow">
-                            <label for="send-msg" class="d-none">Scrivi un messaggio da inviare</label>
+                            <label for="send-msg" class="sr-only">Scrivi un messaggio da inviare</label>
                             <input type="text" id="send-msg" placeholder="Scrivi un messaggio">
                         </div>
                         <!-- Microphone -->
                         <div>
                             <a href=""> <i class="fa-solid fa-microphone"></i></a>
                         </div>
-                    </div>
+                    </footer>
 
-                </section>
+                </div>
             </main>
         </div>
     </div>

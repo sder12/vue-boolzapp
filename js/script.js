@@ -6,6 +6,11 @@ createApp({
         return {
             activeContact: 0,
             messageInput: "",
+            answerMsg: {
+                date: '10/01/2020 15:51:00',
+                message: 'ok',
+                status: 'received',
+            },
             contacts: [
                 {
                     name: 'Michele',
@@ -176,16 +181,36 @@ createApp({
         changeActive(index) {
             this.activeContact = index
         },
+
         addNewMessage() {
+            //createObject
             const newMessage = {
                 date: '10/01/2020 15:51:00',
                 message: this.messageInput,
                 status: 'sent',
-            }            
-            console.log(newMessage)
-        }
+            }
+            //select array messages
+            const activeContactPerson = this.contacts[this.activeContact];
+            const arrayMessages = activeContactPerson.messages;
+            //push in the array and clean the input
+            arrayMessages.push(newMessage);
+            this.messageInput = "";
+
+
+            // //add setTimeOut response
+            setTimeout(() => {
+                console.log("ciao")}, 500);
+            // setTimeout(() => {
+            //     arrayMessages.push(this.answerMessage);
+            // }, 1000);
+
+        },
+
+
     },
     created() {
-        console.log("debug")
+        console.log("debug");
+
+
     }
 }).mount("#app")

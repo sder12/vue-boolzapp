@@ -165,10 +165,10 @@ html {
 
 .chat-msg {
     margin-bottom: 1em;
-    padding: .5em .7em;
+    padding: .6em 1em;
     border-radius: 5px;
     /* width messages: */
-    min-width: 40%;
+    min-width: 42%;
     max-width: 50%;
     /* click */
     cursor: pointer;

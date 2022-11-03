@@ -103,8 +103,8 @@
                     <header class="main-header d-flex flex-space-between">
                         <div id="chat-header-left" class="d-flex">
                             <div>
-                                <img :src="`img/avatar${contacts[activeContact].avatar}.jpg`" 
-                                :alt="contacts[activeContact].name">
+                                <img :src="`img/avatar${contacts[activeContact].avatar}.jpg`"
+                                    :alt="contacts[activeContact].name">
                             </div>
                             <div class="ms-1">
                                 <h4>{{contacts[activeContact].name}}</h4>
@@ -120,20 +120,32 @@
 
 
                     <!-- CHAT -->
-                    <section id="chat" class="d-flex-column">
-                        <!-- :class="...stauts === 'sent'? 'sent-msg':'received-msg'" -->
-                        <div class="chat-msg sent-msg">
-                            <span>Hai portato a spasso il cane?</span>
-                            <span class="msg-hour">16:15</span>
+                    <section id="chat">
+                      
+                        <div class="chat-box d-flex-column" 
+                        v-for="msgChat in contacts[activeContact].messages">
+                        
+                            <div class="chat-msg sent-msg" 
+                            :class="msgChat.status === 'sent'? 'sent-msg':'received-msg'">
+                                <span>{{msgChat.message}}</span>
+                                <span class="msg-hour">{{msgChat.date.substring(11, 16)}}</span>
+                            </div>
+
                         </div>
-                        <div class="chat-msg sent-msg">
-                            <span>Ricordati di stendere i panni!</span>
-                            <span class="msg-hour">16:15</span>
-                        </div>
-                        <div class="chat-msg received-msg">
-                            <span>Tutto fatto!</span>
-                            <span class="msg-hour">16:15</span>
-                        </div>
+                        <!-- <div class="chat-box d-flex-column">
+                            <div class="chat-msg sent-msg">
+                                <span>Hai portato a spasso il cane?</span>
+                                <span class="msg-hour">16:15</span>
+                            </div>
+                            <div class="chat-msg sent-msg">
+                                <span>Ricordati di stendere i panni!</span>
+                                <span class="msg-hour">16:15</span>
+                            </div>
+                            <div class="chat-msg received-msg">
+                                <span>Tutto fatto!</span>
+                                <span class="msg-hour">16:15</span>
+                            </div>
+                        </div> -->
                     </section>
 
 

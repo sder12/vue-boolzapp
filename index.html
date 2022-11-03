@@ -24,6 +24,10 @@
 
     <!-- Vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Luxos -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.1.0/luxon.min.js"
+        integrity="sha512-79nhbkASdW5wurW8DtF9Vd7BEDKdTbCKkh87lW6W3tk9T4L9Bc58MzmvRzjMcFCSKpjkoRjwzrTdfOa5lkfJ5Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -77,8 +81,9 @@
 
                     <!-- CONTACT LEFT -->
                     <section id="contact">
-                        <div class="contact-friend d-flex flex-space-between-start" v-for="(friend, index) in contacts" @click="changeActive(index)">
-                            <div class="d-flex" >
+                        <div class="contact-friend d-flex flex-space-between-start" v-for="(friend, index) in contacts"
+                            @click="changeActive(index)">
+                            <div class="d-flex">
                                 <div class="friend-img">
                                     <img :src="'img/avatar' + friend.avatar + '.jpg'" :alt="friend.name">
                                 </div>
@@ -121,12 +126,11 @@
 
                     <!-- CHAT -->
                     <section id="chat">
-                      
-                        <div class="chat-box d-flex-column" 
-                        v-for="msgChat in contacts[activeContact].messages">
 
-                            <div class="chat-msg sent-msg" 
-                            :class="msgChat.status === 'sent'? 'sent-msg':'received-msg'">
+                        <div class="chat-box d-flex-column" v-for="msgChat in contacts[activeContact].messages">
+
+                            <div class="chat-msg sent-msg"
+                                :class="msgChat.status === 'sent'? 'sent-msg':'received-msg'">
                                 <span>{{msgChat.message}}</span>
                                 <span class="msg-hour">{{msgChat.date.substring(11, 16)}}</span>
                             </div>
@@ -159,7 +163,8 @@
                         <!-- INPUT scrivi messaggio -->
                         <div id="footer-input" class="flex-grow">
                             <label for="send-msg" class="sr-only">Scrivi un messaggio da inviare</label>
-                            <input type="text" id="send-msg" placeholder="Scrivi un messaggio" v-model.trim="messageInput" @keyup.enter="addNewMessage()">
+                            <input type="text" id="send-msg" placeholder="Scrivi un messaggio"
+                                v-model.trim="messageInput" @keyup.enter="addNewMessage()">
                         </div>
                         <!-- Microphone -->
                         <div>

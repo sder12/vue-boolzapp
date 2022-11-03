@@ -1,11 +1,13 @@
 
 const { createApp } = Vue;
+const dt = luxon.DateTime;
 
 createApp({
     data() {
         return {
             activeContact: 0,
             messageInput: "",
+            nowTime: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -178,10 +180,13 @@ createApp({
         },
 
         addNewMessage() {
+            //TIME 
+            this.nowTime = dt.now().setLocale('it').toLocaleString(dt.DATETIME_SHORT_WITH_SECONDS);
+
             //INPUT MSG
             //createObject
             const newMessage = {
-                date: '10/01/2020 15:51:00',
+                date: this.nowTime,
                 message: this.messageInput,
                 status: 'sent',
             }
@@ -195,20 +200,19 @@ createApp({
             //OUTPUT-ANSWER
             //CreateEmptyObj
             const answerMsgEmpty = {
-                date: '10/01/2020 15:51:00',
+                date: this.nowTime,
                 message: 'ok',
                 status: 'received',
             };
             // //add setTimeOut response           
             setTimeout(function () {
                 arrayMessages.push(answerMsgEmpty);
-            }, 700);
+            }, 800);
         },
+
 
     },
     created() {
-        console.log("debug");
-
-
+        console.log("debug")
     }
 }).mount("#app")

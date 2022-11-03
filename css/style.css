@@ -10,7 +10,7 @@ img {
 }
 
 html {
-    font-size: 62, 5%;
+    font-size: 100%;
     font-family: 'Lato', sans-serif;
 }
 
@@ -71,6 +71,12 @@ html {
     padding: 0 1rem;
 }
 
+/* IMG HEADER */
+#nav-left img,
+#chat-header-left img {
+    height: 6vh;
+    border-radius: 50%;
+}
 
 /* SECTION LEFT ----------------------*/
 .main-header {
@@ -84,17 +90,20 @@ html {
 #notification div:nth-child(2)>a {
     font-size: .8rem;
     color: var(--footer-icon);
+    padding-top: .2em;
 }
 
 #search-bar {
-    background-color: white;
-    padding: .5em 0;
+    height: var(--search-height);
+    background-color: var(--header);
 }
 
 #search-bar>div {
+    background-color: white;
     width: 95%;
     border: 1px solid var(--hover-person);
     border-radius: 3px;
+    padding: .3em 0;
 }
 
 #search-bar input {
@@ -108,14 +117,15 @@ html {
 
 
 
-#contact {
-    height: calc(100% - (var(--search-height) + var(--header-height) * 2));
+#contact {    
+    height: calc(90vh - (var(--search-height) + (var(--header-height) * 2)));
     overflow-y: scroll;
     background-color: white;
 }
 
 .contact-friend {
-    padding: 1em 0;
+    padding: .8em 0;
+    border-bottom: 2px solid var(--header);
 }
 
 .contact-friend:hover {
@@ -130,10 +140,10 @@ html {
     height: 50px;
     border-radius: 50%;
 }
-
-
-
-
+.friend-hour span{
+    font-size: .8rem;
+    text-align: right;
+}
 
 
 
@@ -161,7 +171,7 @@ html {
 .chat-msg .msg-hour {
     font-size: .6rem;
     position: absolute;
-    bottom: 0;
+    bottom: .3em;
     right: .3em;
 }
 
@@ -180,7 +190,6 @@ html {
 /* footer */
 #footer-msg {
     background-color: var(--footer);
-    text-align: center;
 }
 
 #footer-input input {
@@ -194,12 +203,7 @@ html {
     outline: none;
 }
 
-/* IMG HEADER */
-#nav-left img,
-#chat-header-left img {
-    height: 6vh;
-    border-radius: 50%;
-}
+
 
 /* ICON */
 .main-header i {
@@ -207,14 +211,16 @@ html {
     font-size: 1.2rem;
     margin: 0 8px;
 }
-
-#notification i {
+#notification div:nth-child(1){
     background-color: white;
     color: var(--notification);
     border-radius: 50%;
-    padding: .6em;
-    font-size: 1rem;
-    text-align: center;
+    width: 40px;
+    height: 40px;   
+    cursor: pointer;
+}
+#notification i {    
+    font-size: 1.2rem;
 }
 
 #footer-msg div i {
@@ -245,13 +251,17 @@ h4{
     color: var(--main-icon);
 }
 
-#chat-header-left span {
+#chat-header-left h4 {
+    padding-top: .2em;
+}
+
+#chat-header-left span {    
     color: var(--footer-icon);
 }
 
 
 
-/* FLEX CLASS */
+/* FLEX CLASS ----------------*/
 .d-none {
     display: none;
 }
@@ -311,3 +321,4 @@ h4{
 .me_5 {
     margin-right: .5em;
 }
+

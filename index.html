@@ -50,7 +50,7 @@
                     </div>
                     <!-- Notification -->
                     <div id="notification" class="d-flex align-item">
-                        <div class="ms-1 me_5">
+                        <div class="ms-1 me_5 d-flex flex-centered">
                             <i class="fa-solid fa-bell-slash"></i>
                         </div>
                         <div class="d-flex-column">
@@ -81,13 +81,13 @@
                                 </div>
                                 <div class="friend-txt d-flex-column">
                                     <h4>{{friend.name}}</h4>
-                                    <span>
-                                        {{friend.messages[0].message}}
+                                    <span>  
+                                        {{friend.messages[0].message}}                      
                                     </span>
                                 </div>
                             </div>
                             <div class="friend-hour d-flex me_5">
-                                <span> 12:00</span>
+                                <span> {{friend.messages[0].date.substring(11, 16)}}</span>
                             </div>
                         </div>
                     </div>
@@ -113,8 +113,13 @@
                             <a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
                         </div>
                     </div>
+
+                    
                     <!-- CHAT -->
                     <div id="chat" class="d-flex-column">
+
+                        
+
                         <div class="chat-msg sent-msg">
                             <span>Hai portato a spasso il cane?</span>
                             <span class="msg-hour">16:15</span>
@@ -127,6 +132,9 @@
                             <span>Tutto fatto!</span>
                             <span class="msg-hour">16:15</span>
                         </div>
+
+
+
                     </div>
 
                     <!-- Footer SEND MSG -->

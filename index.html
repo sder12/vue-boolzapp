@@ -159,7 +159,7 @@
                         <!-- INPUT scrivi messaggio -->
                         <div id="footer-input" class="flex-grow">
                             <label for="send-msg" class="sr-only">Scrivi un messaggio da inviare</label>
-                            <input type="text" id="send-msg" placeholder="Scrivi un messaggio">
+                            <input type="text" id="send-msg" placeholder="Scrivi un messaggio" v-model.trim="messageInput" @keyup.enter="addNewMessage()">
                         </div>
                         <!-- Microphone -->
                         <div>

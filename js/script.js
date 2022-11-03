@@ -1,10 +1,11 @@
 
-const {createApp} = Vue;
+const { createApp } = Vue;
 
 createApp({
-    data(){
-        return{
+    data() {
+        return {
             activeContact: 0,
+            messageInput: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -167,15 +168,24 @@ createApp({
                         }
                     ],
                 }
-            ]            
+            ],
+
         }
     },
-    methods:{
-        changeActive(index){            
+    methods: {
+        changeActive(index) {
             this.activeContact = index
+        },
+        addNewMessage() {
+            const newMessage = {
+                date: '10/01/2020 15:51:00',
+                message: this.messageInput,
+                status: 'sent',
+            }            
+            console.log(newMessage)
         }
     },
-    created(){
+    created() {
         console.log("debug")
     }
 }).mount("#app")

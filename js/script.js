@@ -6,11 +6,13 @@ const dt = luxon.DateTime;
 createApp({
     data() {
         return {
+            userName: "Sofia",
             activeContact: 0,
             //cancel msg
             activeMsg: null,
             isCanceled: false,
             clickedIconHeader: false,
+            isNotCompilated: false,
             //insert new msg
             messageInput: "",
             nowTime: "",
@@ -22,6 +24,8 @@ createApp({
             lastAccess: this.generateDateNow(),
             //create New Contact
             addIsClicked: false,
+            newContactName: "",
+            newContactAvatar: "",
             //GIVEN Data            
             contacts: [
                 {
@@ -280,7 +284,51 @@ createApp({
         cancelContact(index) {
             this.isCanceled = false;
             this.contacts.splice(index, 1);
+        },
+
+        //Add new contact        
+        chooseAvatar(index) {            
+            const indexPlus = parseInt(index) + 1;
+            this.newContactAvatar = `_${indexPlus}`;
+        },
+        addNewContact() {
+            this.isNotCompilated = false;
+            if (this.newContactAvatar != "" && this.newContactName != "") {
+                const newNameMaiusc = this.newContactName[0].toUpperCase() + this.newContactName.substring(1).toLowerCase();
+               //Creare nuovo contact Obj
+                const newContact = {
+                    name: newNameMaiusc,
+                    avatar: this.newContactAvatar.toString(),
+                    icon: 'existing',
+                    visible: true,
+                    messages: [
+
+                        {
+                            date: this.lastAccess,
+                            message: `Ciao ${newNameMaiusc}! :)`,
+                            status: 'sent',
+                        },
+                        {
+                            date: this.lastAccess,
+                            message: `Ciao ${this.userName}!`,
+                            status: 'received',
+                        },
+                        {
+                            date: this.lastAccess,
+                            message: "Che bello sentirti! Come stai?",
+                            status: 'received',
+                        }
+                    ]
+                }
+                this.contacts.push(newContact);
+                this.activeContact = this.contacts.length - 1;
+                this.newContactName = "";
+                this.addIsClicked = false;
+            } else {
+                this.isNotCompilated = true;
+            }
         }
+
     },
 
 }).mount("#app")
@@ -288,10 +336,10 @@ createApp({
 
 //PSEUDOCODICE
 //A
-//Aggiungere nuova conversazione con un pop up input 
-//nome link icona 
+//Aggiungere nuova conversazione con un pop up input
+//nome link icona
 
 
-//B 
+//B
 // scroll in giù automatico della chat verso msg + recente
 // nextTick di Vue?

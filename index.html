@@ -45,7 +45,7 @@
                     <section class="main-header d-flex flex-space-between">
                         <header id="nav-left" class="d-flex">
                             <img src="img/avatar_io.jpg" alt="user icon">
-                            <h4 class="ms-1 align-self">Sofia</h4>
+                            <h4 class="ms-1 align-self">{{userName}}</h4>
                         </header>
                         <div id="nav-right">
                             <a href=""><i class="fa-solid fa-circle-notch"></i></a>
@@ -198,26 +198,29 @@
 
                 <!-- POP UP ADD NEW CONTACT -->
                 <section id="popup-newcontact" v-if="addIsClicked">
-                    <div id="popup-close" @click="addIsClicked = false">
+                    <div id="popup-close" @click="addIsClicked = false, isNotCompilated = false">
                         <i class="fa-solid fa-xmark"></i>
                     </div>
                     <div class="popup-wrapper d-flex-column flex-centered">
                         <h3>Aggiungi un nuovo contatto</h3>
+                        <small v-if="isNotCompilated">Errore compilazione: inserire il nome e scegliere l'avatar</small>
                         <div class="popup-new-name d-flex-column">
                             <h5> Scegli il nome</h5>
                             <label for="contact-name" class="sr-only"> Name of the new contact you want to add </label>
-                            <input type="text" id="contact-name" placeholder="Inserisci un nome">
+                            <input type="text" id="contact-name" placeholder="Inserisci un nome"
+                                v-model.trim="newContactName">
                         </div>
                         <div class="popup-new-avatar">
                             <h5>Scegli l'avatar</h5>
                             <div class="icon-wrapper d-flex flex-space-between">
-                                <div class="icon-avatars" v-for="(friend, index) in contacts">
+                                <div class="icon-avatars" v-for="(friend, index) in contacts"
+                                    @click="chooseAvatar(index)" :class="friend.icon === 'existing'? 'sr-only' : ''">
                                     <img :src="'img/avatar' + friend.avatar + '.jpg'" :alt="friend.name">
                                 </div>
                             </div>
                         </div>
                         <div class="popup-btn">
-                            <button> Aggiungi alla rubrica </button>
+                            <button @click="addNewContact()"> Aggiungi alla rubrica </button>
                         </div>
                     </div>
                 </section>

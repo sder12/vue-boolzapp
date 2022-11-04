@@ -168,7 +168,9 @@
                         </div>
                         <!-- Microphone -->
                         <div>
-                            <a href=""> <i class="fa-solid fa-microphone"></i></a>
+                            <a href="#" v-if="!messageInput"> <i class="fa-solid fa-microphone fa-sm"></i></a>
+                            <a href="#" v-else @click="addNewMessage()"> <i class="fa-solid fa-plane fa-xs"></i></a>
+
                         </div>
                     </footer>
 

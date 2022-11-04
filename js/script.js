@@ -20,6 +20,8 @@ createApp({
             botIsWriting: "",
             botIsOnline: "",
             lastAccess: this.generateDateNow(),
+            //create New Contact
+            addIsClicked: false,
             //GIVEN Data            
             contacts: [
                 {

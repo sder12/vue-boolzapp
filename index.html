@@ -91,12 +91,12 @@
                                 <div class="friend-txt d-flex-column">
                                     <h4>{{friend.name}}</h4>
                                     <span>
-                                        {{friend.messages[0].message}}
+                                        {{friend.messages[friend.messages.length - 1].message}}
                                     </span>
                                 </div>
                             </div>
                             <div class="friend-hour d-flex me_5">
-                                <span> {{friend.messages[0].date.substring(11, 16)}}</span>
+                                <span> {{friend.messages[friend.messages.length - 1].date.substring(11, 16)}}</span>
                             </div>
                         </div>
                     </section>

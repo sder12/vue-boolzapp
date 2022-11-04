@@ -65,6 +65,7 @@ html {
 
 #main-right {
     width: calc(100% - var(--section-left));
+    position: relative;
 }
 
 .main-header,
@@ -159,6 +160,7 @@ html {
 
 
 /* SECTION RIGHT ----------------------*/
+
 #chat {
     height: calc(100% - (var(--header-height) * 2));
     overflow-y: scroll;
@@ -209,7 +211,7 @@ html {
     /* position cancel msg */
     position: absolute;
     left: 55%;
-    bottom: -40px;    
+    bottom: -40px;
 }
 
 .cancel-msg>* {
@@ -218,8 +220,31 @@ html {
     margin: .2em 0;
 }
 
+/* CANCEL DIV chat and contact */
+.cancel-content {
+    position: absolute;
+    top: var(--header-height);
+    right: 0;
+    background-color: white;
+    color: var(--footer-icon);
+    z-index: 999;
+    padding: 1em 1rem;
+    border-radius: 4px;
+}
 
+.cancel-content .cancel-chat {
+    border-bottom: 1px solid var(--footer-icon);
+}
 
+.cancel-content div {
+    padding: .5rem 0;
+    cursor: pointer;
+}
+
+.cancel-content .cancel-chat:hover span,
+.cancel-content .cancel-contact:hover span {
+    color: black;
+}
 
 /* footer */
 #footer-msg {

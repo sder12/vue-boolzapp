@@ -123,12 +123,19 @@
                             </div>
                         </div>
                         <div id="chat-header-right">
-                            <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-                            <a href=""><i class="fa-solid fa-paperclip"></i></a>
-                            <a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
+                            <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                            <a href="#"><i class="fa-solid fa-paperclip"></i></a>
+                            <a href="#" @click.prevent="visualizeCancelDiv()"><i class="fa-solid fa-ellipsis-vertical"></i></a>
                         </div>
                     </header>
 
+
+                    <section class="cancel-content" v-if="clickedIconHeader">
+                        <div class="cancel-chat">
+                            <span>Elimina tutti i messaggi</span>                            
+                        </div>
+                        <div class="cancel-contact"><span>Elimina Chat </span></div>
+                    </section>
 
                     <!-- CHAT -->
                     <section id="chat">

@@ -10,13 +10,14 @@ createApp({
             //cancel msg
             activeMsg: null,
             isCanceled: false,
+            clickedIconHeader: false,
             //insert new msg
             messageInput: "",
             nowTime: "",
             //search in the list of contacts
             searchTxt: "",
             //the Bot is writing
-            botIsWriting :"",
+            botIsWriting: "",
             botIsOnline: "",
             lastAccess: this.generateDateNow(),
             //GIVEN Data            
@@ -183,7 +184,7 @@ createApp({
                     ],
                 }
             ],
-            answerBot : [
+            answerBot: [
                 "Ciao", "Come stai?", "OK", "Certo", "A domani"
             ]
         }
@@ -210,8 +211,8 @@ createApp({
                 status: 'sent',
             }
             //select array messages            
-            const arrayMessages = this.contacts[this.activeContact].messages;              
-            const arrayMessagesBot = this.contacts[activeContactBot].messages;        
+            const arrayMessages = this.contacts[this.activeContact].messages;
+            const arrayMessagesBot = this.contacts[activeContactBot].messages;
             //push in the array and clean the input
             arrayMessages.push(newMessage);
             this.messageInput = "";
@@ -221,18 +222,19 @@ createApp({
             //CreateEmptyObj
             const answerMsgEmpty = {
                 date: this.generateDateNow(),
-                message: this.answerBot[Math.floor(Math.random()*this.answerBot.length)],
+                message: this.answerBot[Math.floor(Math.random() * this.answerBot.length)],
                 status: 'received',
-            };          
+            };
             //add setTimeOut response           
-            setTimeout( () =>{
+            setTimeout(() => {
                 this.botIsWriting = false;
                 this.botIsOnline = true;
-                arrayMessagesBot.push(answerMsgEmpty);               
+                arrayMessagesBot.push(answerMsgEmpty);
             }, 1000);
             //beeing online 
             setTimeout(() => {
                 this.botIsOnline = false;
+                this.lastAccess = this.generateDateNow();
             }, 3000)
         },
 
@@ -265,16 +267,24 @@ createApp({
             } else {
                 this.isCanceled = true;
             }
-
         },
 
+        visualizeCancelDiv() {            
+                this.clickedIconHeader = !this.clickedIconHeader
+        }
     },
 
 }).mount("#app")
 
 
+//PSEUDOCODICE
+//cliccando in alto a destra si apre una tendina dove posso eliminare
+//sia chat intera (this.isCanceled) sia contatto dall'array-obj
 
-//PSEUDO CODICE sta scrivendo....
-// TimeOut pc: "Sta scrivendo..."
-//fine time out: "Ultimo accesso oggi alle |oraAttuale|"
-//mantenere scrittura: "Online" per 2 sec
+//creo div fantasma
+//lo rendo visibile al click dell'icona
+//possibilità di cliccare 1 o l'altro div interni
+//     1. "Elimina tutti i messaggi"
+//     2. "Elimina chat"
+// 1. setto il this.Canceled = true
+//2. cancello l'obj nell'array dei contatti

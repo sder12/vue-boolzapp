@@ -192,6 +192,7 @@ createApp({
     methods: {
         changeActive(index) {
             this.isCanceled = false;
+            this.clickedIconHeader = false;
             this.activeContact = index
         },
         //create Date Time 
@@ -270,11 +271,13 @@ createApp({
         },
 
         //Cancel Div - contact or chat
-        visualizeCancelDiv() {            
-                this.clickedIconHeader = !this.clickedIconHeader
+        visualizeCancelDiv() {
+            this.activeMsg = null;
+            this.clickedIconHeader = !this.clickedIconHeader
         },
-        cancelContact(index){
-            console.log(index);
+        cancelContact(index) {
+            this.isCanceled = false;
+            this.contacts.splice(index, 1);
         }
     },
 

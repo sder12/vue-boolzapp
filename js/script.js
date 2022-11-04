@@ -15,6 +15,10 @@ createApp({
             nowTime: "",
             //search in the list of contacts
             searchTxt: "",
+            //the Bot is writing
+            botIsWriting :"",
+            botIsOnline: "",
+            lastAccess: this.generateDateNow(),
             //GIVEN Data            
             contacts: [
                 {
@@ -213,16 +217,23 @@ createApp({
             this.messageInput = "";
 
             //OUTPUT-ANSWER
+            this.botIsWriting = true;
             //CreateEmptyObj
             const answerMsgEmpty = {
                 date: this.generateDateNow(),
                 message: this.answerBot[Math.floor(Math.random()*this.answerBot.length)],
                 status: 'received',
-            };
-            // //add setTimeOut response           
-            setTimeout(function () {
-                arrayMessagesBot.push(answerMsgEmpty);
-            }, 800);
+            };          
+            //add setTimeOut response           
+            setTimeout( () =>{
+                this.botIsWriting = false;
+                this.botIsOnline = true;
+                arrayMessagesBot.push(answerMsgEmpty);               
+            }, 1000);
+            //beeing online 
+            setTimeout(() => {
+                this.botIsOnline = false;
+            }, 3000)
         },
 
         //Search-filter in the contact
@@ -260,3 +271,10 @@ createApp({
     },
 
 }).mount("#app")
+
+
+
+//PSEUDO CODICE sta scrivendo....
+// TimeOut pc: "Sta scrivendo..."
+//fine time out: "Ultimo accesso oggi alle |oraAttuale|"
+//mantenere scrittura: "Online" per 2 sec

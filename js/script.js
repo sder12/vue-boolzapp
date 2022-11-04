@@ -285,13 +285,11 @@ createApp({
 
 
 //PSEUDOCODICE
-//cliccando in alto a destra si apre una tendina dove posso eliminare
-//sia chat intera (this.isCanceled) sia contatto dall'array-obj
+//A
+//Aggiungere nuova conversazione con un pop up input 
+//nome link icona 
 
-//creo div fantasma
-//lo rendo visibile al click dell'icona
-//possibilità di cliccare 1 o l'altro div interni
-//     1. "Elimina tutti i messaggi"
-//     2. "Elimina chat"
-// 1. setto il this.Canceled = true
-//2. cancello l'obj nell'array dei contatti
+
+//B 
+// scroll in giù automatico della chat verso msg + recente
+// nextTick di Vue?

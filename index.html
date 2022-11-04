@@ -134,7 +134,9 @@
                         <div class="cancel-chat" @click="isCanceled = true">
                             <span>Elimina tutti i messaggi</span>                            
                         </div>
-                        <div class="cancel-contact"><span>Elimina Chat </span></div>
+                        <div class="cancel-contact" @click="cancelContact(activeContact)">
+                            <span>Elimina Chat </span>
+                        </div>
                     </section>
 
                     <!-- CHAT -->

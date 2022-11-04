@@ -195,6 +195,7 @@ createApp({
 
         //Writing a new msg with time and have a 'robot' answer
         addNewMessage() {
+            const activeContactBot = this.activeContact;
             //INPUT MSG
             //createObject
             const newMessage = {
@@ -203,7 +204,8 @@ createApp({
                 status: 'sent',
             }
             //select array messages            
-            const arrayMessages = this.contacts[this.activeContact].messages;           
+            const arrayMessages = this.contacts[this.activeContact].messages;              
+            const arrayMessagesBot = this.contacts[activeContactBot].messages;        
             //push in the array and clean the input
             arrayMessages.push(newMessage);
             this.messageInput = "";
@@ -217,7 +219,7 @@ createApp({
             };
             // //add setTimeOut response           
             setTimeout(function () {
-                arrayMessages.push(answerMsgEmpty);
+                arrayMessagesBot.push(answerMsgEmpty);
             }, 800);
         },
 

@@ -102,7 +102,8 @@
                     </section>
 
                     <!-- ADD + New contact -->
-                    <section class="add-contact d-flex flex-centered" @click="addIsClicked = true">
+                    <section class="add-contact d-flex flex-centered"
+                        @click="addIsClicked = true, clickedIconHeader = false">
                         <div>
                             <i class="fa-solid fa-plus"></i>
                         </div>
@@ -139,7 +140,7 @@
 
                     <!-- CANCEL chat or contact -->
                     <section class="cancel-content" v-if="clickedIconHeader">
-                        <div class="cancel-chat" @click="isCanceled = true">
+                        <div class="cancel-chat" @click="isCanceled = true, clickedIconHeader = false">
                             <span>Elimina tutti i messaggi</span>
                         </div>
                         <div class="cancel-contact" @click="cancelContact(activeContact)">

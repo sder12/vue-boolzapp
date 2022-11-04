@@ -26,6 +26,7 @@ createApp({
             addIsClicked: false,
             newContactName: "",
             newContactAvatar: "",
+            
             //GIVEN Data            
             contacts: [
                 {
@@ -269,33 +270,41 @@ createApp({
         //Click on the Pop up --> elimination of the msg 
         deleteMsg(index) {
             const arrayMessages = this.contacts[this.activeContact].messages;
-            if (!!arrayMessages.length && index !== 0) {
+            if (arrayMessages.length > 1) {
                 arrayMessages.splice(index, 1);
             } else {
                 this.isCanceled = true;
             }
+
         },
 
         //Cancel Div - contact or chat
         visualizeCancelDiv() {
             this.activeMsg = null;
-            this.clickedIconHeader = !this.clickedIconHeader
+            this.clickedIconHeader = !this.clickedIconHeader;
         },
         cancelContact(index) {
             this.isCanceled = false;
             this.contacts.splice(index, 1);
+            this.clickedIconHeader = false;
+            if (index !== 0) {
+                this.activeContact = index - 1;
+            } else {
+                this.activeContact = 0;
+            }
         },
 
         //Add new contact        
-        chooseAvatar(index) {            
+        chooseAvatar(index) {
             const indexPlus = parseInt(index) + 1;
             this.newContactAvatar = `_${indexPlus}`;
+            
         },
         addNewContact() {
             this.isNotCompilated = false;
             if (this.newContactAvatar != "" && this.newContactName != "") {
                 const newNameMaiusc = this.newContactName[0].toUpperCase() + this.newContactName.substring(1).toLowerCase();
-               //Creare nuovo contact Obj
+                //Creare nuovo contact Obj
                 const newContact = {
                     name: newNameMaiusc,
                     avatar: this.newContactAvatar.toString(),

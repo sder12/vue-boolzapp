@@ -106,7 +106,7 @@
                 <!-- Section RIGHT -->
                 <div id="main-right">
                     <!-- Header RIGHT -->
-                    <header class="main-header d-flex flex-space-between" @click="removePopUp()">
+                    <header class="main-header d-flex flex-space-between">
                         <div id="chat-header-left" class="d-flex">
                             <div>
                                 <img :src="`img/avatar${contacts[activeContact].avatar}.jpg`"
@@ -130,9 +130,11 @@
 
                         <div class="chat-box d-flex-column">
 
-                            <div class="chat-msg" v-for="(msgChat, i) in contacts[activeContact].messages"
-                                :class="msgChat.status === 'sent'? 'sent-msg':'received-msg'"
-                                @click="visualizeCancel(i)">
+                            <div class="chat-msg" 
+                                v-for="(msgChat, i) in contacts[activeContact].messages"
+                                :class="`${msgChat.status}-msg`" 
+                                @click="visualizeCancel(i)"
+                                v-if="!isCanceled">
 
                                 <span>{{msgChat.message}}</span>
                                 <span class="msg-hour">{{msgChat.date.substring(11, 16)}}</span>

@@ -129,9 +129,9 @@
                         </div>
                     </header>
 
-
+                    <!-- CANCEL chat or contact -->
                     <section class="cancel-content" v-if="clickedIconHeader">
-                        <div class="cancel-chat">
+                        <div class="cancel-chat" @click="isCanceled = true">
                             <span>Elimina tutti i messaggi</span>                            
                         </div>
                         <div class="cancel-contact"><span>Elimina Chat </span></div>

@@ -269,6 +269,7 @@ createApp({
             }
         },
 
+        //Cancel Div - contact or chat
         visualizeCancelDiv() {            
                 this.clickedIconHeader = !this.clickedIconHeader
         }

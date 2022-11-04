@@ -179,7 +179,9 @@ createApp({
                     ],
                 }
             ],
-
+            answerBot : [
+                "Ciao", "Come stai?", "OK", "Certo", "A domani"
+            ]
         }
     },
     methods: {
@@ -214,7 +216,7 @@ createApp({
             //CreateEmptyObj
             const answerMsgEmpty = {
                 date: this.generateDateNow(),
-                message: 'ok',
+                message: this.answerBot[Math.floor(Math.random()*this.answerBot.length)],
                 status: 'received',
             };
             // //add setTimeOut response           

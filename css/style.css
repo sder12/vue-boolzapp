@@ -16,6 +16,14 @@ html {
 
 /* VARIABLES */
 :root {
+    /* DIMENSION --------------------*/
+    /* width */
+    --section-left: 35%;
+    /* height */
+    --header-height: 60px;
+    --search-height: 40px;
+    /* COLORS --------------------*/
+    --white: rgb(255, 248, 248);
     --bg-body: rgba(218, 219, 212, 1);
     --bg-body-last: #d2dbdc;
     --bg-body-green: rgba(0, 150, 136, 1);
@@ -26,12 +34,11 @@ html {
     --footer: rgba(243, 238, 234, 1);
     --footer-icon: rgba(107, 115, 118, 1);
     --send-msg: rgba(213, 249, 186, 1);
-    /* dimension */
-    /* width */
-    --section-left: 35%;
-    /* height */
-    --header-height: 60px;
-    --search-height: 40px;
+    --color-hover: rgb(218, 218, 218);
+    --text-black: black;
+    --boder-color: rgba(128, 128, 128, 0.445);
+    --box-shadow: rgba(0, 0, 0, 0.38);
+    --grey: rgb(218, 218, 218);
 }
 
 
@@ -76,7 +83,22 @@ html {
 
 .main-header {
     padding: 0 1rem;
+    background-color: var(--header);
 }
+
+
+/* CURSOR-pointer */
+.contact-friend,
+.add-contact,
+.chat-msg,
+.cancel-content div,
+#notification div:nth-child(1),
+#popup-close,
+.popup-btn button,
+.icon-avatars img {
+    cursor: pointer;
+}
+
 
 /* IMG HEADER */
 #nav-left img,
@@ -86,10 +108,6 @@ html {
 }
 
 /* SECTION LEFT ----------------------*/
-.main-header {
-    background-color: var(--header)
-}
-
 #notification {
     background-color: var(--notification);
 }
@@ -100,16 +118,15 @@ html {
     padding-top: .2em;
 }
 
-
 #search-bar {
     height: var(--search-height);
     background-color: var(--header);
 }
 
 #search-bar>div {
-    background-color: white;
+    background-color: var(--white);
     width: 95%;
-    border: 1px solid rgba(128, 128, 128, 0.445);
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     padding: .3em 0;
 }
@@ -123,21 +140,16 @@ html {
     outline: none;
 }
 
-
-
 #contact {
     height: calc(90vh - (var(--search-height) + (var(--header-height) * 2)));
     overflow-y: scroll;
-    background-color: white;
-
+    background-color: var(--white);
 }
 
 .contact-friend {
     padding: .8em 0;
     border-top: 2px solid var(--header);
-    cursor: pointer;
 }
-
 
 .contact-friend:hover {
     background-color: var(--hover-person);
@@ -161,11 +173,10 @@ html {
 .add-contact {
     width: 30px;
     height: 30px;
-    cursor: pointer;
     border-radius: 50%;
     background-color: var(--header);
     box-shadow: 0px 0px 11px -3px var(--main-icon);
-    border: 1px solid rgb(218, 218, 218);
+    border: 1px solid var(--grey);
 
     position: absolute;
     bottom: 10px;
@@ -174,15 +185,15 @@ html {
 }
 
 .add-contact:hover {
-    background-color: rgb(218, 218, 218);
+    background-color: var(--grey);
 }
 
 .add-contact i {
     color: var(--footer-icon);
 }
 
-/* SECTION RIGHT ----------------------*/
 
+/* SECTION RIGHT ----------------------*/
 #chat {
     height: calc(100% - (var(--header-height) * 2));
     overflow-y: scroll;
@@ -198,7 +209,6 @@ html {
     min-width: 42%;
     max-width: 50%;
     /* click */
-    cursor: pointer;
     position: relative;
 }
 
@@ -215,7 +225,7 @@ html {
 }
 
 .received-msg {
-    background-color: white;
+    background-color: var(--white);
     align-self: flex-start;
 }
 
@@ -223,11 +233,10 @@ html {
     position: relative;
 }
 
-
 .cancel-msg {
-    background-color: white;
+    background-color: var(--white);
     padding: 1em .5em;
-    box-shadow: 4px 2px 28px -3px rgba(0, 0, 0, 0.38);
+    box-shadow: 4px 2px 28px -3px var(--box-shadow);
     border-radius: 3px;
     z-index: 99;
     /* position cancel msg */
@@ -247,7 +256,7 @@ html {
     position: absolute;
     top: var(--header-height);
     right: 0;
-    background-color: white;
+    background-color: var(--white);
     color: var(--footer-icon);
     z-index: 999;
     padding: 1em 1rem;
@@ -260,12 +269,11 @@ html {
 
 .cancel-content div {
     padding: .5rem 0;
-    cursor: pointer;
 }
 
 .cancel-content .cancel-chat:hover span,
 .cancel-content .cancel-contact:hover span {
-    color: black;
+    color: var(--text-black);
 }
 
 /* footer */
@@ -293,13 +301,18 @@ html {
     margin: 0 8px;
 }
 
+#search-bar i {
+    color: var(--main-icon);
+    font-size: .8rem;
+    margin: 0 8px;
+}
+
 #notification div:nth-child(1) {
-    background-color: white;
+    background-color: var(--white);
     color: var(--notification);
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    cursor: pointer;
 }
 
 #notification i {
@@ -310,12 +323,6 @@ html {
     color: var(--footer-icon);
     font-size: 1.4rem;
     margin: 0 30px;
-}
-
-#search-bar i {
-    color: var(--main-icon);
-    font-size: .8rem;
-    margin: 0 8px;
 }
 
 
@@ -344,6 +351,75 @@ h4 {
     color: var(--footer-icon);
 }
 
+/* POP UP ADD NEW CONTACT */
+#popup-close {
+    text-align: end;
+    color: var(--bg-body-green);
+    font-size: 1rem;
+}
+
+#popup-newcontact {
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    background-color: var(--white);
+    padding: 1rem 2rem;
+    box-shadow: 0px 0px 11px -3px var(--main-icon);
+    border: 1px solid var(--grey);
+    border-radius: 10px;
+}
+
+.popup-wrapper>div {
+    margin: 1rem 0;
+}
+
+.icon-wrapper {
+    gap: 5px;
+}
+
+.popup-wrapper small {
+    color: red;
+}
+
+.popup-new-name h5,
+.popup-new-avatar h5 {
+    padding-bottom: .5em;
+}
+
+.popup-new-name input {
+    padding: .3em 1.3em;
+}
+
+.popup-btn button {
+    padding: .5em 1.2em;
+    border-radius: 3px;
+    border: 1px solid var(--main-icon);
+    font-weight: 600;
+    color: var(--bg-body-green);
+}
+
+.popup-btn button:hover {
+    background-color: var(--color-hover)
+}
+
+.icon-avatars {
+    width: 50px;
+    height: 50px;
+}
+
+.icon-avatars img {
+    border-radius: 50%;
+}
+
+.icon-avatars img:hover {
+    box-shadow: 0px 0px 11px -3px var(--text-black);
+}
+
+.border-clicked-img {
+    border: 1px solid var(--bg-body-green);
+}
 
 
 /* FLEX CLASS ----------------*/
@@ -405,77 +481,4 @@ h4 {
 
 .me_5 {
     margin-right: .5em;
-}
-
-/* POP UP ADD NEW CONTACT */
-#popup-close {
-    text-align: end;
-    color: var(--bg-body-green);
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-#popup-newcontact {
-    position: absolute;
-    z-index: 999;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -60%);
-    background-color: white;
-    padding: 1rem 2rem;
-    box-shadow: 0px 0px 11px -3px var(--main-icon);
-    border: 1px solid rgb(218, 218, 218);
-    border-radius: 10px;
-}
-
-.popup-wrapper>div {
-    margin: 1rem 0;
-}
-.icon-wrapper {
-    gap: 5px;
-}
-
-.popup-wrapper small{
-    color: red;
-}
-
-.popup-new-name h5,
-.popup-new-avatar h5 {
-    padding-bottom: .5em;
-}
-
-.popup-new-name input {
-    padding: .3em 1.3em;
-}
-
-.popup-btn button {
-    padding: .5em 1.2em;
-    border-radius: 3px;
-    border: 1px solid var(--main-icon);
-    cursor: pointer;
-    font-weight: 600;
-    color: var(--bg-body-green);
-}
-
-.popup-btn button:hover {
-    background-color: rgb(218, 218, 218);
-}
-
-
-.icon-avatars {
-    width: 50px;
-    height: 50px;
-}
-
-.icon-avatars img {
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.icon-avatars img:hover {
-    box-shadow: 0px 0px 11px -3px black;
-}
-
-.border-clicked-img {
-    border: 1px solid var(--bg-body-green);
 }

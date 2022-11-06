@@ -26,7 +26,7 @@ createApp({
             addIsClicked: false,
             newContactName: "",
             newContactAvatar: "",
-            
+
             //GIVEN Data            
             contacts: [
                 {
@@ -209,7 +209,8 @@ createApp({
 
 
         //Writing a new msg with time and have a 'robot' answer
-        addNewMessage() {
+        addNewMessage() {    
+            this.isCanceled = false;        
             const activeContactBot = this.activeContact;
             //INPUT MSG
             //createObject
@@ -275,7 +276,6 @@ createApp({
             } else {
                 this.isCanceled = true;
             }
-
         },
 
         //Cancel Div - contact or chat
@@ -298,7 +298,11 @@ createApp({
         chooseAvatar(index) {
             const indexPlus = parseInt(index) + 1;
             this.newContactAvatar = `_${indexPlus}`;
-            
+        },
+        closeAddNewContact() {
+            this.addIsClicked = false;
+            this.isNotCompilated = false;
+            this.newContactName = "";
         },
         addNewContact() {
             this.isNotCompilated = false;

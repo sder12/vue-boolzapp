@@ -82,8 +82,9 @@
 
                     <!-- List of contact -->
                     <section id="contact">
-                        <div class="contact-friend d-flex flex-space-between-start" v-for="(friend, index) in contacts"
-                            @click="changeActive(index)" :class="friend.visible === true? '' : 'sr-only'">
+                        <template  v-for="(friend, index) in contacts">
+                        <div class="contact-friend d-flex flex-space-between-start"
+                            @click="changeActive(index)" v-if="friend.visible">
                             <div class="d-flex">
                                 <div class="friend-img">
                                     <img :src="'img/avatar' + friend.avatar + '.jpg'" :alt="friend.name">
@@ -99,6 +100,7 @@
                                 <span> {{friend.messages[friend.messages.length - 1].date.substring(11, 16)}}</span>
                             </div>
                         </div>
+                    </template>
                     </section>
 
                     <!-- ADD + New contact -->

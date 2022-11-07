@@ -251,11 +251,13 @@ createApp({
         filterSearch() {
             this.contacts.forEach(element => {
                 const nameContact = element.name;
-                if (nameContact.toLowerCase().includes(this.searchTxt)) {
+                if (nameContact.toLowerCase().includes(this.searchTxt.toLowerCase())  ) {
                     element.visible = true;
                 } else {
                     element.visible = false;
                 }
+                //in ONE line: 
+                // element.visible = nameContact.toLowerCase().includes(this.searchTxt.toLowerCase()); 
             });
         },
 
